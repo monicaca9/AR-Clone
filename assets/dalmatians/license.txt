@@ -1,0 +1,11 @@
+Model Information:
+* title:	101 Dalmatians Puppy
+* source:	https://sketchfab.com/3d-models/101-dalmatians-puppy-862d64f546e2449e9fddfcc4c0aa02b6
+* author:	xeratdragons (https://sketchfab.com/dragonights91)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "101 Dalmatians Puppy" (https://sketchfab.com/3d-models/101-dalmatians-puppy-862d64f546e2449e9fddfcc4c0aa02b6) by xeratdragons (https://sketchfab.com/dragonights91) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

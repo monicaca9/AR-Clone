@@ -1,0 +1,113 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Multiple Marker</title>
+    <!-- include text geometry -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- create assets -->
+        <a-assets timeout="900000">
+            <a-asset-item id="shiba_inu_dog" src="./assets/shiba_inu_dog/scene.gltf"></a-asset-item>
+            <a-asset-item id="anjing1" src="./assets/anjing1/scene.gltf"></a-asset-item>
+            <a-asset-item id="anjing" src="./assets/anjing/scene.gltf"></a-asset-item>
+            <a-asset-item id="dalmatians" src="./assets/dalmatians/scene.gltf"></a-asset-item>
+            <a-asset-item id="puppy" src="./assets/puppy/scene.gltf"></a-asset-item>
+            <a-asset-item id="shiba" src="./assets/shiba/scene.gltf"></a-asset-item>
+            <a-asset-item id="puppy1" src="./assets/puppy1/scene.gltf"></a-asset-item>
+            <a-asset-item id="bulldog" src="./assets/bulldog/scene.gltf"></a-asset-item>
+            <a-asset-item id="shepherd" src="./assets/shepherd/scene.gltf"></a-asset-item>
+            <a-asset-item id="frenchbull" src="./assets/frenchbull/scene.gltf"></a-asset-item>
+        </a-assets>
+        <!-- handle unknown marker -->
+        <a-marker type="unknown">
+            <a-box depth="1" height="1" width="1" position="0 0.5 0" material="opacity: 0.5; side:double; color:purple;"></a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="0">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#anjing1" rotation="0 270 0" position="0.1 -0.2 0" scale="0.8 0.8 0.8"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="1">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#anjing" rotation="0 0 0" position="0 -0.2 0" scale="0.05 0.05 0.05"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="2">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#dalmatians" rotation="0 0 0" position="0 0 0.2" scale="0.3 0.3 0.3"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="3">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#puppy" rotation="0 270 0" position="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="4">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#shiba" rotation="0 0 0" position="0 0.3 1" scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="5">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#puppy1" rotation="0 0 0" position="0 -0.2 1" scale="0.3 0.3 0.3"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="6">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#bulldog" rotation="0 0 0" position="0 -0.1 1" scale="0.02 0.02 0.02"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="7">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#shepherd" rotation="0 270 0" position="0 -0.1 1" scale="0.3 0.3 0.3"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="8">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#frenchbull" rotation="0 0 0" position="0 -0.02 1" scale="0.02 0.02 0.02"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+        
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="9">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white">
+                <a-gltf-model src="#shiba_inu_dog" rotation="0 0 0" position="-0.2 -0.1 1" scale="0.2 0.2 0.2"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lập trình web là gì? Học lập trình web
+* source:	https://sketchfab.com/3d-models/lap-trinh-web-la-gi-hoc-lap-trinh-web-f33ca304621047b7b76dee9e5afb1920
+* author:	VnSkills Academy (https://sketchfab.com/vnsacademy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lập trình web là gì? Học lập trình web" (https://sketchfab.com/3d-models/lap-trinh-web-la-gi-hoc-lap-trinh-web-f33ca304621047b7b76dee9e5afb1920) by VnSkills Academy (https://sketchfab.com/vnsacademy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
