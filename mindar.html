@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+	const list = ["anjing", "anjing1", "bulldog", "dalmatians", "frenchbull", "puppy", "puppy1", "shepherd", "shiba", "shiba_inu_dog"];
+	const visibles = [false, false, false, false, false, false, false, false, false, false];
+	const setVisible = (button, entities, visible) => {
+	  if (visible) {
+	    button.classList.add("selected");
+	  } else {
+	    button.classList.remove("selected");
+	  }
+	  entities.forEach((entity) => {
+	    entity.setAttribute("visible", visible);
+	  });
+	}
+	list.forEach((item, index) => {
+	  const button = document.querySelector("#" + item);
+	  const entities = document.querySelectorAll("." + item + "-entity");
+	  setVisible(button, entities, visibles[index]);
+	  button.addEventListener('click', () => {
+	    visibles[index] = !visibles[index];
+	    setVisible(button, entities, visibles[index]);
+	  });
+	});
+      })
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .example-container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .options-panel {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+      }
+      .options-panel img {
+	border: solid 2px;
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	cursor: pointer;
+      }
+      .options-panel img.selected {
+	border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="example-container">
+      <div class="options-panel">
+	<!-- <img id="hat1" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat/thumbnail.png"/>
+	<img id="hat2" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat2/thumbnail.png"/>
+	<img id="glasses1" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses/thumbnail.png"/>
+	<img id="glasses2" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses2/thumbnail.png"/>
+	<img id="earring" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/earring/thumbnail.png"/> -->
+
+  <img id="anjing" src="./assets/anjing/anjing.jpeg"/>
+  <img id="anjing1" src="./assets/anjing1/anjing1.jpeg"/>
+  <img id="bulldog" src="./assets/bulldog/bulldog.jpeg"/>
+  <img id="dalmatians" src="./dalmatians/dalmatians.jpeg"/>
+  <img id="frenchbull" src="./assets/frenchbull/frenchbull.jpeg"/>
+  <img id="puppy" src="./assets/puppy/puppy.jpeg"/>
+  <img id="puppy1" src="./assets/puppy1/puppy1.jpeg"/>
+  <img id="shepherd" src="./assets/shepherd/shepherd.jpeg"/>
+  <img id="shiba" src="./assets/shiba/shiba.jpeg"/>
+  <img id="shiba_inu_dog" src="./assets/shiba_inu_dog/shiba_inu_dog.jpeg"/>
+      </div>
+      <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+          <!-- <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
+          <a-asset-item id="glassesModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses/scene.gltf"></a-asset-item>
+          <a-asset-item id="glassesModel2" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses2/scene.gltf"></a-asset-item>
+          <a-asset-item id="hatModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat/scene.gltf"></a-asset-item>
+          <a-asset-item id="hatModel2" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat2/scene.gltf"></a-asset-item>
+          <a-asset-item id="earringModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/earring/scene.gltf"></a-asset-item> -->
+
+          <a-asset-item id="anjingModel" src="./assets/anjing/scene.gltf"></a-asset-item>
+          <a-asset-item id="anjingModel1" src="./assets/anjing1/scene.gltf"></a-asset-item>
+          <a-asset-item id="bulldogModel" src="./assets/bulldog/scene.gltf"></a-asset-item>
+          <a-asset-item id="dalmatiansModel" src="./assets/dalmatians/scene.gltf"></a-asset-item>
+          <a-asset-item id="frenchbullModel" src="./assets/frenchbull/scene.gltf"></a-asset-item>
+          <a-asset-item id="puppyModel" src="./assets/puppy/scene.gltf"></a-asset-item>
+          <a-asset-item id="puppyModel1" src="./assets/puppy1/scene.gltf"></a-asset-item>
+          <a-asset-item id="shepherdModel" src="./assets/shepherd/scene.gltf"></a-asset-item>
+          <a-asset-item id="shibaModel" src="./assets/shiba/scene.gltf"></a-asset-item>
+          <a-asset-item id="shiba_inu_dogModel" src="./assets/shiba_inu_dog/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-camera active="false" position="0 0 0"></a-camera>
+	<!-- head occluder -->
+        <!-- <a-entity mindar-face-target="anchorIndex: 168">
+	        <a-gltf-model mindar-face-occluder position="0 -0.3 0.15"rotation="0 0 0" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
+        </a-entity> -->
+        <a-entity mindar-face-target="anchorIndex: 168">
+	        <a-gltf-model rotation="0 0 0" position="0 -0.3 0.3" scale="0.03 0.03 0.03" src="#anjingModel" class="anjing-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 52">
+	        <a-gltf-model rotation="0 270 0" position="0 -0.2 0.1" scale="0.5 0.5 0.5" src="#anjingModel1" class="anjing1-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 10">
+	        <a-gltf-model rotation="0 -0 0" position="0 0 0" scale="0.01 0.01 0.01" src="#bulldogModel" class="bulldog-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 10">
+	        <a-gltf-model rotation="0 360 0" position="0 -0.3 0" scale="0.1 0.1 0.1" src="#dalmatiansModel" class="dalmatians-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 101">
+	        <a-gltf-model rotation="-0.1 -0 0" position="0 -0.3 0.1" scale="0.01 0.01 0.01" src="#frenchbullModel" class="frenchbull-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 359">
+	        <a-gltf-model rotation="0 270 0" position="0 0 0" scale="0.2 0.2 0.2" src="#puppyModel" class="puppy-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 19">
+	        <a-gltf-model rotation="0.1 -0 0" position="0 -0.3 -0.3" scale="0.2 0.2 0.2" src="#puppyModel1" class="puppy1-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 287">
+	        <a-gltf-model rotation="0 270 0" position="0 0 -0.1" scale="0.2 0.2 0.2" src="#shepherdModel" class="shepherd-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 57">
+	        <a-gltf-model rotation="0.1 -0 0" position="0 -0.3 -0.1" scale="0.3 0.3 0.3" src="#shibaModel" class="shiba-entity" visible="false"></a-gltf-model>
+        </a-entity>        
+        <a-entity mindar-face-target="anchorIndex: 379">
+	        <a-gltf-model rotation="0.1 -0 0" position="0.4 0.4 0" scale="0.08 0.08 0.08" src="#shiba_inu_dogModel" class="shiba_inu_dog-entity" visible="false"></a-gltf-model>
+        </a-entity>
+      </a-scene>
+    </div>
+  </body>
+</html>
